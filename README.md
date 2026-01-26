@@ -15,25 +15,29 @@ Projekt implementuje niskopoziomowy parser i ewaluator wyrażeń matematycznych 
 
 ## Przykładowy input i output
 **Dane wejściowe:**
+* **W pierwszej linii podajemy liczbę formuł, a następnie wyrażenia każde zakończone kropką.**
+
 ```text
+1
 N ( ( MAX ( 0 , 1 ) + N ( 1 ) ) ) .
 ```
 
 **Wynik działania programu:**
+* **Program najpierw wypisuje postać postfiksową (ONP), a następnie kroki obliczeń (operator oraz aktualną zawartość stosu), na końcu wypisuje ostateczną wartość wyrażenia.**
 ```text
-0 1 MAX2 1 N + N
-MAX2 1 0
-N 1 1
-+ -1 1
-N 0
-0
+0 1 MAX2 1 N + N     # Notacja postfiksowa (MAX2 oznacza funkcję z 2 argumentami)
+MAX2 1 0             # Przed wykonaniem MAX: na stosie są 1 i 0
+N 1 1                # Przed wykonaniem N (negacji): na stosie jest 1, pod nią wynik z MAX
++ -1 1               # Przed dodawaniem: na stosie są -1 oraz 1
+N 0                  # Przed końcową negacją: na stosie jest wynik dodawania (0)
+0                    # Wynik końcowy
 ```
 
 ## Jak uruchomić projekt
 1. **Pobierz repozytorium:**
    ```bash
    git clone https://github.com/szachusia/RPN-Calculator
-   cd Calculator
+   cd RPN-Calculator/Calculator
    ```
 2. Skompiluj pliki przy użyciu dowolnego kompilatora C++ (np. g++):
    ```bash
@@ -42,6 +46,10 @@ N 0
    
 3. Uruchom program:
    ```bash
-   ./rpn_calculator
+   # Dla Linux, macOS i Windows PowerShell:
+	./rpn_calculator
+
+	# Dla Windows CMD:
+	rpn_calculator
    ```
    
