@@ -30,3 +30,41 @@
 *.exe
 *.out
 *.app
+
+# Visual Studio "śmieci"
+.vs/
+[Vv]s/
+Calculator/.vs/
+[Dd]ebug/
+[Rr]elease/
+*.db
+*.opendb
+*.suo
+*.user
+*.aps
+*.intermediate.manifest
+
+# Pliki VS Code
+.vscode/
+Calculator/.vscode/
+
+# Pliki kompilacji
+*.obj
+*.exe
+*.pdb
+*.ilk
+*.log
+
+# Pliki rozwiązań i projektów Visual Studio
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+
+# Reszta śmieci (na wszelki wypadek)
+.vs/
+Debug/
+Release/
+x64/
+*.db
+*.suo
