@@ -35,18 +35,18 @@ N 0                   # Before final negation: stack contains addition result (0
 ```
 
 ## How to Run
-1.**Clone the repository:**
+1. **Clone the repository:**
 	```bash
 	git clone https://github.com/szachusia/RPN-Calculator
 	cd RPN-Calculator/Calculator
 	```
 
-2.**Compile the files using a C++ compiler (e.g., g++):**
+2. **Compile the files using a C++ compiler (e.g., g++):**
 	```bash
 	g++ Calculator.cpp -o rpn_calculator
 	```
 
-3.**Run the program:**
+3. **Run the program:**
 	```bash
    # Dla Linux, macOS i Windows PowerShell:
 	./rpn_calculator
