@@ -1,55 +1,56 @@
-# Kalkulator RPN (ONP)
+# RPN Calculator (Reverse Polish Notation)
 
-Projekt implementuje niskopoziomowy parser i ewaluator wyrażeń matematycznych wykorzystujący Odwróconą Notację Polską (RPN). Program został napisany w języku C++ z naciskiem na samodzielną implementację struktur danych oraz algorytmikę.
+A low-level mathematical expression parser and evaluator utilizing Reverse Polish Notation (RPN). The project was developed in C++ with a strong focus on manual data structure implementation and algorithmic efficiency.
 
-## Główne funkcjonalności
-* **Konwersja Infix-to-Postfix**: Implementacja algorytmu stacyjnego (Shunting-yard) do obsługi priorytetów operatorów oraz nawiasów.
-* **Obsługa funkcji o zmiennej arytności**: Wsparcie dla funkcji zagnieżdżonych, takich jak `IF`, `MIN` oraz `MAX`. Program dynamicznie wyznacza liczbę parametrów funkcji w trakcie parsowania zapisu infiksowego.
-* **Samodzielna implementacja struktur danych**: Wszystkie kluczowe struktury danych, w tym **Stos (Stack) oraz Kolejka (Queue)**, zostały zaimplementowane od zera przy użyciu wskaźników i list wiązanych. Projekt nie wykorzystuje biblioteki standardowej STL ani typu `std::string`.
-* **Obsługa błędów**: System wykrywania wyjątków matematycznych, w tym dzielenia przez zero, oraz identyfikacji nieprawidłowych tokenów w wyrażeniu.
-* **Zarządzanie pamięcią**: Ręczna alokacja i zwalnianie zasobów w celu zapewnienia wydajności i zapobiegania wyciekom pamięci.
+## Key Features
+* **Infix-to-Postfix Conversion**: Implementation of the Shunting-yard algorithm to handle operator precedence and nested parentheses.
+* **Variable Arity Function Support**: Support for nested functions such as `IF`, `MIN`, and `MAX`. The program dynamically determines the number of function parameters during infix parsing.
+* **Custom Data Structures (No STL)**: Core data structures, including **Stack and Queue**, were implemented from scratch using pointers and linked lists. The project avoids the C++ Standard Template Library (STL) and the `std::string` type to demonstrate low-level memory management.
+* **Error Handling**: Robust detection of mathematical exceptions (e.g., division by zero) and identification of invalid tokens within expressions.
+* **Manual Memory Management**: Explicit allocation and deallocation of resources to ensure performance and prevent memory leaks.
 
-## Technologie i koncepcje
-* **Język**: C++
-* **Kluczowe zagadnienia**: Algorytmy, struktury danych, wskaźniki, ręczne zarządzanie pamięcią.
+## Technologies & Concepts
+* **Language**: C++
+* **Core Topics**: Algorithms, Data Structures, Pointers, Manual Memory Management.
 
-## Przykładowy input i output
-**Dane wejściowe:**
-* **W pierwszej linii podajemy liczbę formuł, a następnie wyrażenia każde zakończone kropką.**
+## Sample Input & Output
+**Input:**
+* **The first line specifies the number of formulas, followed by expressions, each ending with a period.**
 
 ```text
 1
 N ( ( MAX ( 0 , 1 ) + N ( 1 ) ) ) .
 ```
 
-**Wynik działania programu:**
-* **Program najpierw wypisuje postać postfiksową (ONP), a następnie kroki obliczeń (operator oraz aktualną zawartość stosu), na końcu wypisuje ostateczną wartość wyrażenia.**
+**Output:**
+* **The program first prints the postfix (RPN) form, followed by the calculation steps (operator and current stack state), and finally the result.**
 ```text
-0 1 MAX2 1 N + N     # Notacja postfiksowa (MAX2 oznacza funkcję z 2 argumentami)
-MAX2 1 0             # Przed wykonaniem MAX: na stosie są 1 i 0
-N 1 1                # Przed wykonaniem N (negacji): na stosie jest 1, pod nią wynik z MAX
-+ -1 1               # Przed dodawaniem: na stosie są -1 oraz 1
-N 0                  # Przed końcową negacją: na stosie jest wynik dodawania (0)
-0                    # Wynik końcowy
+0 1 MAX2 1 N + N      # Postfix notation (MAX2 denotes function with 2 arguments)
+MAX2 1 0              # Before MAX: stack contains 1 and 0
+N 1 1                 # Before N (negation): stack contains 1, beneath is MAX result
+
+-1 1                # Before addition: stack contains -1 and 1
+N 0                   # Before final negation: stack contains addition result (0)
+0                     # Final result
 ```
 
-## Jak uruchomić projekt
-1. **Pobierz repozytorium:**
-   ```bash
-   git clone https://github.com/szachusia/RPN-Calculator
-   cd RPN-Calculator/Calculator
-   ```
-2. Skompiluj pliki przy użyciu dowolnego kompilatora C++ (np. g++):
-   ```bash
-   g++ Calculator.cpp -o rpn_calculator
-   ```
-   
-3. Uruchom program:
-   ```bash
+## How to Run
+1.**Clone the repository:**
+	```bash
+	git clone https://github.com/szachusia/RPN-Calculator
+	cd RPN-Calculator/Calculator
+	```
+
+2.**Compile the files using a C++ compiler (e.g., g++):**
+	```bash
+	g++ Calculator.cpp -o rpn_calculator
+	```
+
+3.**Run the program:**
+	```bash
    # Dla Linux, macOS i Windows PowerShell:
 	./rpn_calculator
 
 	# Dla Windows CMD:
 	rpn_calculator
-   ```
-   
+  ```
