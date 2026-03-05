@@ -48,7 +48,7 @@ N 0                   # Before final negation: stack contains addition result (0
 
 3. **Run the program:**
 	```bash
-   # Dla Linux, macOS i Windows PowerShell:
+  # Dla Linux, macOS i Windows PowerShell:
 	./rpn_calculator
 
 	# Dla Windows CMD:
